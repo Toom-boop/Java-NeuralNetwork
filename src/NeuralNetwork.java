@@ -24,8 +24,8 @@ public class NeuralNetwork {
         return outputLayers[outputLayers.length - 1];
     }
 
-    public void train(double[][] inputs, double[][] outputs, int numberOfTrainingIterations) {
-        for (int i = 0; i < numberOfTrainingIterations; ++i) {
+    public void train(double[][] inputs, double[][] outputs, int iterations) {
+        for (int i = 0; i < numberOfTrainingIterations; i++) {
             run(inputs);
             
             double[][][] deltaLayers = new double[layers.length][0][0];
@@ -44,8 +44,8 @@ public class NeuralNetwork {
             	}
             }
 
-            if(i % (numberOfTrainingIterations/10) == 0){
-                System.out.println("Training iteration " + i + " of " + numberOfTrainingIterations);
+            if(i % (iterations/10) == 0){
+                System.out.println("Iteration " + i + " / " + iterations);
             }
         }
     }
