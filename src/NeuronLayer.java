@@ -1,3 +1,5 @@
+package userfriendly;
+
 import java.util.function.Function;
 
 public class NeuronLayer implements Layer {
