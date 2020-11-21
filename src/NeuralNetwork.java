@@ -1,5 +1,3 @@
-package userfriendly;
-
 public class NeuralNetwork {
 	private final Layer[] layers;
     private double[][][] outputLayers;
