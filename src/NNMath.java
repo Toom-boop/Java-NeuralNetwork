@@ -1,5 +1,3 @@
-package userfriendly;
-
 import java.util.function.Function;
 
 public class NNMath {
