@@ -1,3 +1,5 @@
+package neuralnetwork;
+
 import java.util.function.Function;
 
 public interface Layer {
@@ -5,18 +7,14 @@ public interface Layer {
         SIGMOID,
         TANH
 	}
-	
-	public enum InitialWeightType {
-        RANDOM
-    }
 
-	public double[][] weights();
+	public Tensor weights();
 	
 	public Function<Double, Double> activationFunction();
 	
 	public Function<Double, Double> activationFunctionDerivative();
 	 
-	public void adjustWeights(double[][] adjustment);
+	public void adjustWeights(Tensor adjustment);
 
 	
 }
