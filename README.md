@@ -25,5 +25,5 @@ net.train(inputs, outputs, 10000);
 ## Run
 
 ```JAVA
-double[][] output = net.run(inputs);
+Tensor output = net.run(inputs);
 ```
