@@ -1,5 +1,3 @@
-package neuralnetwork;
-
 import java.io.File;
 import java.util.function.Function;
 
