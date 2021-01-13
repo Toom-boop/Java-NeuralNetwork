@@ -59,4 +59,8 @@ public class NeuralNetwork {
             }
         }
     }
+    
+    public Layer[] getLayers() {
+    	return this.layers;
+    }
 }
