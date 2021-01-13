@@ -1,7 +1,6 @@
-import java.io.File;
-import java.util.function.Function;
+package neuralnetwork;
 
-import wfe.tools.FileManager;
+import java.util.function.Function;
 
 public class NeuronLayer implements Layer {
 	public Tensor weights;
@@ -9,11 +8,10 @@ public class NeuronLayer implements Layer {
 	public final ActivationFunctionType activationFunctionType;
     public final Function<Double, Double> activationFunction, activationFunctionDerivative;
 
-    public NeuronLayer(File file) {
+    public NeuronLayer(String data) {
     	//File: SIGMOID%{{1.0,4.0,4.0,4.0,2.0,2.0},{6.0,9.0,2.0,7.0,2.0,3.0}}
-    	String content = FileManager.read(file);
         
-        if(content.substring(0, content.indexOf("%")).equals("TANH")) {
+        if(data.substring(0, data.indexOf("%")).equals("TANH")) {
         	activationFunctionType = ActivationFunctionType.TANH;
         	activationFunction = NNMath::tanh;
             activationFunctionDerivative = NNMath::tanhDerivative;
@@ -22,7 +20,7 @@ public class NeuronLayer implements Layer {
         	activationFunction = NNMath::sigmoid;
             activationFunctionDerivative = NNMath::sigmoidDerivative;
         }      
-        String[] rows = content.substring(content.indexOf("%") + 3, content.length() - 2).replaceAll("\\{", "").split("},");
+        String[] rows = data.substring(data.indexOf("%") + 3, data.length() - 2).replaceAll("\\{", "").split("},");
         
         Tensor out = new Tensor();
         

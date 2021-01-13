@@ -1,3 +1,5 @@
+package neuralnetwork;
+
 import java.util.function.Function;
 
 public interface Layer {
