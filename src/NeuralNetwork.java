@@ -1,5 +1,3 @@
-package neuralnetwork;
-
 public class NeuralNetwork {
 	private final Layer[] layers;
     private Tensor[] outputLayers;
