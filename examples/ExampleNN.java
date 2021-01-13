@@ -26,7 +26,7 @@ public class ExampleNN {
 		Layer layer1 = new NeuronLayer(3, 2);
 		Layer layer2 = new NeuronLayer(2, 1);
 		
-		NeuralNetwork net = new NeuralNetwork(0.2, layer1, layer2);
+		NeuralNetwork net = new NeuralNetwork(layer1, layer2);
 		
 		net.train(inputs, outputs, 10000);
 		
