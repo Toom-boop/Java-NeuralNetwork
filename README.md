@@ -16,6 +16,8 @@ NeuralNetwork net = new NeuralNetwork(new NeuronLayer(3, 6), ... , new NeuronLay
 ***
 ## Training
 ```JAVA
+Tensor inputs = new Tensor();
+Tensor outputs = new Tensor();
 net.train(inputs, outputs, 10000);
 ```
 
@@ -24,6 +26,7 @@ net.train(inputs, outputs, 10000);
 ## Run
 
 ```JAVA
+Tensor inputs = new Tensor();
 Tensor output = net.run(inputs);
 ```
 
