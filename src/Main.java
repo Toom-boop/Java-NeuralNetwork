@@ -2,8 +2,6 @@ package neuralnetwork;
 
 import java.util.function.Function;
 
-import neuralnetwork.Layer.ActivationFunctionType;
-
 public class Main {
 	public static void main(String[] args) {	
 		Tensor inputs = new Tensor();
@@ -29,8 +27,8 @@ public class Main {
 		outputs.set(0, 2, 0);
 		outputs.set(0, 3, 0);
 
-		Layer layer1 = new NeuronLayer(ActivationFunctionType.TANH, 3, 2);
-		Layer layer2 = new NeuronLayer(ActivationFunctionType.TANH, 2, 1);
+		Layer layer1 = new NeuronLayer(3, 2);
+		Layer layer2 = new NeuronLayer(2, 1);
 		
 		NeuralNetwork net = new NeuralNetwork(0.2, layer1, layer2);
 		

@@ -8,7 +8,7 @@ public class NeuralNetwork {
     private final boolean logging;
 
     public NeuralNetwork(Layer... layers) {
-        this(0.1, false, layers);
+        this(0.2, false, layers);
     }
     
     public NeuralNetwork(double learningRate, Layer... layers) {

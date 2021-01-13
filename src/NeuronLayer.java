@@ -38,7 +38,7 @@ public class NeuronLayer implements Layer {
     }
     
     public NeuronLayer(int inputSize, int outputSize) {
-        this(ActivationFunctionType.SIGMOID, inputSize, outputSize);
+        this(ActivationFunctionType.TANH, inputSize, outputSize);
     }
 
     public NeuronLayer(ActivationFunctionType activationFunctionType, int inputSize, int outputSize) {
