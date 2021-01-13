@@ -53,7 +53,7 @@ public class NeuralNetwork {
                     layers[l].adjustWeights(NNMath.apply(outputLayers[l-1].transpose().multiply(deltaLayers[l]), (x) -> learningRate * x));
             	}
             }
-
+            
             if(logging && i % (iterations/10) == 0) {
                 System.out.println("Iteration " + i + " of " + iterations);
             }

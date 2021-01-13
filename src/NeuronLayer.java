@@ -37,18 +37,12 @@ public class NeuronLayer implements Layer {
         this.weights = out;
     }
     
-    public NeuronLayer(int numberOfInputsPerNeuron, int numberOfNeurons) {
-        this(ActivationFunctionType.SIGMOID, numberOfInputsPerNeuron, numberOfNeurons);
+    public NeuronLayer(int inputSize, int outputSize) {
+        this(ActivationFunctionType.SIGMOID, inputSize, outputSize);
     }
 
-    public NeuronLayer(ActivationFunctionType activationFunctionType, int numberOfInputsPerNeuron, int numberOfNeurons) {
-        weights = new Tensor();
-
-        for (int i = 0; i < numberOfInputsPerNeuron; i++) {
-            for (int l = 0; l < numberOfNeurons; l++) {
-            	weights.set(i, l, (2 * Math.random()) - 1);
-            }
-        }
+    public NeuronLayer(ActivationFunctionType activationFunctionType, int inputSize, int outputSize) {
+        weights = NeuronLayer.randomize(new Tensor(inputSize, outputSize));
 
         this.activationFunctionType = activationFunctionType;
         
@@ -60,6 +54,16 @@ public class NeuronLayer implements Layer {
             activationFunctionDerivative = NNMath::sigmoidDerivative;
         }
     }
+    
+    private static Tensor randomize(Tensor a) {
+		Tensor result = new Tensor();
+		for(int i = 0; i<a.size().x; i++) {
+			for(int l = 0; l<a.size().y; l++) {
+				result.set(i, l, Math.random());
+			}
+		}
+		return result;
+	}
 
     @Override
     public void adjustWeights(Tensor adjustment) {
