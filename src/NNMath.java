@@ -1,5 +1,3 @@
-package neuralnetwork;
-
 import java.util.function.Function;
 
 public class NNMath {
