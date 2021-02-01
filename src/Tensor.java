@@ -1,4 +1,4 @@
-package neuralnetwork;
+package te.neuralnetwork;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,12 +6,12 @@ import java.util.Map.Entry;
 
 public class Tensor {
 	
-	private Map<Point, Double> tensor;
+private Map<Point, Double> tensor;
 	
 	private Point size;
 	
 	public Tensor() {
-		this(1, 1);
+		this(0, 0);
 	}
 	
 	public Tensor(Point p) {
@@ -54,117 +54,70 @@ public class Tensor {
 	}
 	
 	public Tensor add(Tensor b) {
-		Point size = this.size;
-		if(size.x < b.size.x + 1) {
-			size.x = b.size.x + 1;
-		}
-		if(size.y < b.size.y + 1) {
-			size.y = b.size.y + 1;
-		}
+		Point size = new Point(this.size.x, this.size.y);
+		this.fixSize(b.size);
+		
 		
 		Tensor result = new Tensor();
-		
 		for(int i = 0; i<size.x; i++) {
 			for(int l = 0; l<size.y; l++) {
 				result.set(i, l, this.get(i, l) + b.get(i, l));
 			}
 		}
-		result.pack();
 		return result;
 	}
 	
 	public Tensor subtract(Tensor b) {
-		Point size = this.size;
-		if(size.x < b.size.x + 1) {
-			size.x = b.size.x + 1;
-		}
-		if(size.y < b.size.y + 1) {
-			size.y = b.size.y + 1;
-		}
+		Point size = new Point(this.size.x, this.size.y);
+		this.fixSize(b.size);
+		
 		
 		Tensor result = new Tensor();
-		
 		for(int i = 0; i<size.x; i++) {
 			for(int l = 0; l<size.y; l++) {
 				result.set(i, l, this.get(i, l) - b.get(i, l));
 			}
 		}
-		result.pack();
 		return result;
 	}
 	
 	public Tensor multiply(Tensor b) {
-		Point size = this.size;
-		if(size.x < b.size.x + 1) {
-			size.x = b.size.x + 1;
-		}
-		if(size.y < b.size.y + 1) {
-			size.y = b.size.y + 1;
-		}
+		Point size = new Point(this.size.x, this.size.y);
+		this.fixSize(b.size);
+		
 		
 		Tensor result = new Tensor();
-		
 		for(int i = 0; i<size.x; i++) {
 			for(int l = 0; l<size.y; l++) {
 				result.set(i, l, this.get(i, l) * b.get(i, l));
 			}
 		}
-		result.pack();
 		return result;
 	}
 	
 	public Tensor divide(Tensor b) {
-		Point size = this.size;
-		if(size.x < b.size.x + 1) {
-			size.x = b.size.x + 1;
-		}
-		if(size.y < b.size.y + 1) {
-			size.y = b.size.y + 1;
-		}
+		Point size = new Point(this.size.x, this.size.y);
+		this.fixSize(b.size);
+		
 		
 		Tensor result = new Tensor();
-		
 		for(int i = 0; i<size.x; i++) {
 			for(int l = 0; l<size.y; l++) {
 				result.set(i, l, this.get(i, l) / b.get(i, l));
 			}
 		}
-		result.pack();
 		return result;
 	}
 	
 	public Tensor transpose() {
 		Tensor result = new Tensor();
 		
-		for(int i = 0; i<size.x; i++) {
-			for(int l = 0; l<size.y; l++) {
+		for(int i = 0; i<=size.x; i++) {
+			for(int l = 0; l<=size.y; l++) {
 				result.set(l, i, this.get(i, l));
 			}
 		}
-		result.pack();
 		return result;
-	}
-	
-	public void pack() {
-		this.packX();
-		this.packY();
-	}
-	
-	private void packX() {
-		while(size.x > 1) {
-			for(int l = 0; l<size.y; l++) {
-				if(this.get(size.x - 1, l) != 0) return;
-			}
-			size.x--;
-		}
-	}
-	private void packY() {
-		while(size.y > 1) {
-			for(int l = 0; l<size.x; l++) {
-				if(this.get(l, size.y - 1) != 0) return;
-			}
-			size.y--;
-		}
 	}
 	
 	public Point size() {
@@ -172,11 +125,11 @@ public class Tensor {
 	}
 	
 	private void fixSize(Point p) {
-		if(size.x < p.x + 1) {
-			size.x = p.x + 1;
+		if(size.x < p.x+1) {
+			size.x = p.x+1;
 		}
-		if(size.y < p.y + 1) {
-			size.y = p.y + 1;
+		if(size.y < p.y+1) {
+			size.y = p.y+1;
 		}
 	}
 	
