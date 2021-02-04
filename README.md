@@ -110,10 +110,3 @@ Tensor c = a.divide(b);
 Tensor a = new Tensor();  //{{1.0, 2.0}, {3.0, 4.0}}
 Tensor b = a.transpose(); //{{1.0, 3.0}, {2.0, 4.0}}
 ```
-***
-## Pack
-```JAVA
-//removes unnecessary space
-Tensor a = new Tensor();
-a.pack();
-```
