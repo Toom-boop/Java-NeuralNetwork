@@ -1,5 +1,8 @@
 # Java NeuralNetwork
 
+Currently not working.
+Work in Progress...
+
 # NeuralNetwork
 ## Create new NeuralNetwork
 
