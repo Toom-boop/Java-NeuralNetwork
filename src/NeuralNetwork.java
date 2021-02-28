@@ -1,5 +1,3 @@
-package com.neuralnetwork.advanced;
-
 public class NeuralNetwork {
 	private Layer[] layers;
     private Tensor[] outputLayers;
