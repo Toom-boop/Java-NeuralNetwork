@@ -1,5 +1,3 @@
-package com.neuralnetwork.advanced;
-
 public class Pointer {
 	
 	int i = 0;
