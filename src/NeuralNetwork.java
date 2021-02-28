@@ -1,5 +1,6 @@
 public class NeuralNetwork {
-	private Layer[] layers;
+	
+    private Layer[] layers;
     private Tensor[] outputLayers;
     
     private final double learningRate;
