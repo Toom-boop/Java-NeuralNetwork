@@ -1,5 +1,3 @@
-package com.neuralnetwork.advanced;
-
 public class Point {
 	
 	private int[] pos;
