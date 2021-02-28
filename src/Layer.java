@@ -1,5 +1,3 @@
-package com.neuralnetwork.advanced;
-
 import java.util.function.Function;
 
 public interface Layer {
