@@ -1,4 +1,4 @@
-package neuralnetwork;
+package com.neuralnetwork.advanced;
 
 import java.util.function.Function;
 
@@ -22,10 +22,8 @@ public class NNMath {
     public static Tensor apply(Tensor a, Function<Double, Double> fn) {		
 		Tensor result = new Tensor();
 		
-		for(int i = 0; i<a.size().x; i++) {
-			for(int l = 0; l<a.size().y; l++) {
-				result.set(i, l, fn.apply(a.get(i, l)));
-			}
+		for(Point p : a.size()) {
+			result.set(p, fn.apply(a.get(p)));
 		}
 		
 		return result;

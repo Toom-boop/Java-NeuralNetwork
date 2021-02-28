@@ -1,8 +1,9 @@
-package neuralnetwork;
+package com.neuralnetwork.advanced;
 
 public class NeuralNetwork {
-	private final Layer[] layers;
+	private Layer[] layers;
     private Tensor[] outputLayers;
+    
     private final double learningRate;
     
     private final boolean logging;
@@ -15,10 +16,14 @@ public class NeuralNetwork {
         this(learningRate, false, layers);
     }
 
+    public NeuralNetwork(boolean enabledLogging, Layer... layers) {
+    	this(0.2, enabledLogging, layers);
+    }
+    
     public NeuralNetwork(double learningRate, boolean enabledLogging, Layer... layers) {
         this.layers = layers;
         this.learningRate = learningRate;
-        outputLayers = new Tensor[layers.length];
+        this.outputLayers = new Tensor[layers.length];
         
         this.logging = enabledLogging;
     }
@@ -62,5 +67,10 @@ public class NeuralNetwork {
     
     public Layer[] getLayers() {
     	return this.layers;
+    }
+    
+    public void setLayers(Layer... layers) {
+    	this.layers = layers;
+    	this.outputLayers = new Tensor[layers.length];
     }
 }

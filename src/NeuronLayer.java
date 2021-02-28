@@ -1,4 +1,4 @@
-package neuralnetwork;
+package com.neuralnetwork.advanced;
 
 import java.util.function.Function;
 
@@ -27,7 +27,7 @@ public class NeuronLayer implements Layer {
         for(int i = 0; i<rows.length; i++) {
         	String[] items = rows[i].split(",");
         	for(int l = 0; l<items.length; l++) {
-        		out.set(i, l, Double.parseDouble(items[l]));
+        		//TODO out.set(i, l, Double.parseDouble(items[l]));
         	}
         }
         this.weights = out;
@@ -53,10 +53,8 @@ public class NeuronLayer implements Layer {
     
     private static Tensor randomize(Tensor a) {
 		Tensor result = new Tensor();
-		for(int i = 0; i<a.size().x; i++) {
-			for(int l = 0; l<a.size().y; l++) {
-				result.set(i, l, Math.random());
-			}
+		for(Point p : a.size()) {
+			result.set(p, Math.random());
 		}
 		return result;
 	}
