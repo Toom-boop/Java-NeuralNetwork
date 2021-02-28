@@ -1,5 +1,3 @@
-package com.neuralnetwork.advanced;
-
 import java.util.Iterator;
 
 public class Size implements Iterable<Point> {
