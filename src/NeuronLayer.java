@@ -1,11 +1,9 @@
-package com.neuralnetwork.advanced;
-
 import java.util.function.Function;
 
 public class NeuronLayer implements Layer {
-	public Tensor weights;
+    public Tensor weights;
 
-	public final ActivationFunctionType activationFunctionType;
+    public final ActivationFunctionType activationFunctionType;
     public final Function<Double, Double> activationFunction, activationFunctionDerivative;
 
     public NeuronLayer(String data) {
