@@ -62,7 +62,7 @@ Layer layer = new NeuronLayer(data);
 ```
 ***
 
-# Tensor
+# [Tensor](https://github.com/Toom-boop/Java-Tensor)
 ## Create Tensor
 ```JAVA
 Tensor tensor = new Tensor();
